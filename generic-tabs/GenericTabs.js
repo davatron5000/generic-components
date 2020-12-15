@@ -36,7 +36,9 @@ export class GenericTabs extends SelectedMixin(BatchingElement) {
       selectors: {
         tabs: {
           selector: el =>
-            Array.from(el.children).filter(_ => _.matches('h1, h2, h3, h4, h5, h6, [slot="tab"]')),
+            Array.from(el.children).filter(
+              _ => _ instanceof HTMLHeadingElement || _.slot === 'tab',
+            ),
           focusTarget: true,
         },
         panels: {
@@ -44,7 +46,7 @@ export class GenericTabs extends SelectedMixin(BatchingElement) {
             Array.from(el.children).filter(
               _ =>
                 _.matches('h1 ~ *, h2 ~ *, h3 ~ *, h4 ~ *, h5 ~ *, h6 ~ *, [slot="panel"]') &&
-                !_.matches('h1, h2, h3, h4, h5, h6, [slot="tab"]'),
+                !(_ instanceof HTMLHeadingElement || _.slot === 'tab'),
             ),
         },
       },

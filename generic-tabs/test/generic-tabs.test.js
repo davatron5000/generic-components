@@ -65,8 +65,8 @@ describe('generic-tabs', () => {
     const el = await fixture(tabsFixture);
 
     const tablist = el.shadowRoot.querySelector('[role="tablist"]');
-    const panel = el.querySelector('div[slot="panel"]');
-    const button = el.querySelector('button[slot="tab"]');
+    const panel = el.querySelector('[slot="panel"]');
+    const button = el.querySelector('[slot="tab"]');
 
     expect(tablist.getAttribute('role')).to.equal('tablist');
     expect(tablist.getAttribute('aria-label')).to.equal('tablist');
@@ -84,8 +84,8 @@ describe('generic-tabs', () => {
     const el = await fixture(tabsFixture);
 
     const tablist = el.shadowRoot.querySelector('[role="tablist"]');
-    const panel = el.querySelector('div[slot="panel"]');
-    const button = el.querySelector('button[slot="tab"]');
+    const panel = el.querySelector('[slot="panel"]');
+    const button = el.querySelector('[slot="tab"]');
 
     expect(tablist.getAttribute('role')).to.equal('tablist');
     expect(tablist.getAttribute('aria-label')).to.equal('tablist');
@@ -107,8 +107,8 @@ describe('generic-tabs', () => {
 
     await el.updateComplete;
 
-    const newpanel = el.querySelectorAll('div[slot="panel"]')[2];
-    const newbutton = el.querySelectorAll('button[slot="tab"]')[2];
+    const newpanel = el.querySelectorAll('[slot="panel"]')[2];
+    const newbutton = el.querySelectorAll('[slot="tab"]')[2];
 
     expect(newpanel.getAttribute('role')).to.equal('tabpanel');
     expect(newpanel.hasAttribute('aria-labelledby')).to.equal(true);
